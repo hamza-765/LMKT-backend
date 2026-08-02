@@ -54,6 +54,12 @@ app.include_router(chatbot_router, prefix="/api")
 app.include_router(roi_router, prefix="/api")
 app.include_router(leads_router, prefix="/api")
 
+@app.get("/")
+def root():
+    return {
+        "status": "ok",
+        "message": "LMKT Backend is running"
+    }
 
 @app.get("/health")
 def health() -> dict[str, str]:
